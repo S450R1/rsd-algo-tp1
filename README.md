@@ -51,7 +51,12 @@ int test_numbers[] = {
     8000009,
     16000057,
     32000011,
-    64000031
+    64000031,
+    128000003,
+    256000001,
+    512000009,
+    1024000009,
+    2048000011
 };
 ```
 
@@ -80,7 +85,12 @@ tests/a.A1.test.sh
 We got this output:
 
 ![USTHB logo](static/a.A1.test.png)
-Test passed.
+
+c - From the above test, we notice that the time of execution gets bigger in the same time that the integer `N`gets bigger.
+
+d - After these results and the above thing we noticed. Yes, the theorical predictions we made `O(N)` are compatible with the experimental mesures.
+
+# First Algorithm (A2): 
 
 
 
