@@ -90,6 +90,10 @@ c - From the above test, we notice that the time of execution gets bigger in the
 
 d - After these results and the above thing we noticed. Yes, the theorical predictions we made `O(N)` are compatible with the experimental mesures.
 
+e - In two graphs, we represented the variations of execution time `T(N)` and complexity in worst case `O(N)`. Since we're on Kali we used a python script to generate the graph (See `graphs/A1.graph.py`).
+
+![USTHB logo](static/A1.graph.png)
+
 # First Algorithm (A2): 
 
 
