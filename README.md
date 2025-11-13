@@ -86,15 +86,73 @@ We got this output:
 
 ![USTHB logo](static/a.A1.test.png)
 
-c - From the above test, we notice that the time of execution gets bigger in the same time that the integer `N`gets bigger.
+c - From the above test, we notice that the time of execution gets bigger in the same time that the integer `N` gets bigger.
 
 d - After these results and the above thing we noticed. Yes, the theorical predictions we made `O(N)` are compatible with the experimental mesures.
 
 e - In two graphs, we represented the variations of execution time `T(N)` and complexity in worst case `O(N)`. Since we're on Kali we used a python script to generate the graph (See `graphs/A1.graph.py`).
 
+```sh
+python3 graphs/A1.graph.py
+```
+
+Here is the generated graph found at `static/A1.graph.png`
+
 ![USTHB logo](static/A1.graph.png)
 
-# First Algorithm (A2): 
+# Second Algorithm (A2): Improving the Naive Approach
+
+1 - We already know that for every divisor `i` of number `N`: `is` will be smaller or equals `N/2` expect for `i=N`. We used that to create the second algorithm (See `A2.c`).
+
+```c
+p = 1;
+for (i = 2; i <= N / 2; i++) {
+    if (N % i == 0) {
+        p = 0;
+        break;
+    }
+}
+```
+
+2 - Worst-case complexity: `O(N)`. When `N` is prime, the loop performs (`N/2 - 1`) iterations. `T(N)` = `(c/2)N + k = Θ(N)`. Compared to `A1` it halves the constant factor but keeps linear growth.
+
+3 - We have written this program in `A2.c`. Let's test it together. We will use the same array of numbers used for testing `A1`.
+
+Let's compile our program using this shell command:
+
+```sh
+gcc -o A2 A2.c
+```
+
+Then we can do the test using this shell script that can be found in `tests/a.A2.test.sh`. Make sure to make it executable using this command:
+
+```sh
+chmod +x tests/a.A2.test.sh
+```
+
+Then run it using:
+
+```sh
+tests/a.A2.test.sh
+```
+
+We got this output:
+
+![USTHB logo](static/a.A2.test.png)
+
+In two graphs, we represented the variations of execution time `T(N)` and complexity in worst case `O(N)`. Since we're on Kali we used a python script to generate the graph (See `graphs/A2.graph.py`).
+
+```sh
+python3 graphs/A2.graph.py
+```
+
+Here is the generated graph found at `static/A2.graph.png`
+
+![USTHB logo](static/A2.graph.png)
+
+After comparing algorithm `A1`, and algorithm `A2`. They are both linear but `A2` is two times better then `A1`.
+
+
 
 
 
