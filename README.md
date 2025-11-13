@@ -41,45 +41,46 @@ for (i = 2; i < N; i++) {
 
 3 - We have written this program in `A1.c`. Let's test it together.
 
-    a - We need to test this array of integers `test_numbers`.
+a - We need to test this array of integers `test_numbers`.
 
-    ```c
-    int test_numbers[] = {
-        1000003,
-        2000003,
-        4000037,
-        8000009,
-        16000057,
-        32000011,
-        64000031
-    };
-    ```
+```c
+int test_numbers[] = {
+    1000003,
+    2000003,
+    4000037,
+    8000009,
+    16000057,
+    32000011,
+    64000031
+};
+```
 
-    If the code works it will state that all these integers are prime.
+If the code works it will state that all these integers are prime.
 
-    Let's compile our program using this shell command:
+b - Let's mesure the time of execution for every number. To do this we used the `clock()` function from `<time.h>`. See code at `A1.c`. 
 
-    ```sh
-    gcc -o A1 A1.c
-    ```
+Let's compile our program using this shell command:
 
-    Then we can do the test using this shell script that can be found in `tests/a.A1.test.sh`. Make sure to make it executable using this command:
+```sh
+gcc -o A1 A1.c
+```
 
-    ```sh
-    chmod +x tests/a.A1.test.sh
-    ```
+Then we can do the test using this shell script that can be found in `tests/a.A1.test.sh`. Make sure to make it executable using this command:
 
-    Then run it using:
+```sh
+chmod +x tests/a.A1.test.sh
+```
 
-    ```sh
-    tests/a.A1.test.sh
-    ```
+Then run it using:
 
-    We got this output:
-    
-    ![USTHB logo](static/a.A1.test.png)
+```sh
+tests/a.A1.test.sh
+```
 
-    Test passed.
+We got this output:
+
+![USTHB logo](static/a.A1.test.png)
+Test passed.
 
 
 
