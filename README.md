@@ -152,7 +152,60 @@ Here is the generated graph found at `static/A2.graph.png`
 
 After comparing algorithm `A1`, and algorithm `A2`. They are both linear but `A2` is two times better then `A1`.
 
+# Third Algorithm (A3):
 
+1 - The divisors of an integer `N` are such that half of them are smaller than or equal to `√N`, and the other half are greater than or equal to `√N`. so we can use this logic:
+
+```c
+p = 1;
+for (i = 2; i <= sqrt(N); i++) {
+    if (N % i == 0) {
+        p = 0;
+        break;
+    }
+}
+```
+2 - Worst-case complexity: `O(√N)`. When `N` is prime (or its smallest divisor is > `√N`), the loop runs from `i = 2` to ⌊`√N`⌋, giving `Θ(√N)` iterations. Therefore T(N) = `c√N + k = Θ(√N)`.
+
+3 - We have written this program in `A3.c`. Let's test it together. We will use the same array of numbers used for testing `A1`.
+
+Let's compile our program using this shell command:
+
+```sh
+gcc -o A3 A3.c -lm
+```
+
+Then we can do the test using this shell script that can be found in `tests/a.A3.test.sh`. Make sure to make it executable using this command:
+
+```sh
+chmod +x tests/a.A3.test.sh
+```
+
+Then run it using:
+
+```sh
+tests/a.A3.test.sh
+```
+
+We got this output:
+
+![USTHB logo](static/a.A3.test.png)
+
+In two graphs, we represented the variations of execution time `T(N)` and complexity in worst case `O(N)`. Since we're on Kali we used a python script to generate the graph (See `graphs/A3.graph.py`).
+
+```sh
+python3 graphs/A3.graph.py
+```
+
+Here is the generated graph found at `static/A3.graph.png`
+
+![USTHB logo](static/A3.graph.png)
+
+After comparing algorithm `A1`, algorithm `A2` and algorithm `A3`. 
+
+- `A1`: `O(N)`, slowest.
+- `A2`: `O(N)`, ~2× faster than A1 (better constant).
+- `A3`: `O(√N)`, fastest and scales best.
 
 
 
