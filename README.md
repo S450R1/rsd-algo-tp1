@@ -204,9 +204,75 @@ Here is the generated graph found at `static/A3.graph.png`
 After comparing algorithm `A1`, algorithm `A2` and algorithm `A3`. 
 
 - `A1`: `O(N)`, slowest.
-- `A2`: `O(N)`, ~2× faster than A1 (better constant).
+- `A2`: `O(N)`, ~2× faster than `A1` (better constant).
 - `A3`: `O(√N)`, fastest and scales best.
 
+# Fourth Algorithm (A4):
 
+1 - Another possible improvement of the algorithm is to check if `N` is an odd number. In this case we will test the divisibility of `N` only by odd numbers in the loop.
+
+```c
+if (N == 2) {
+    printf("2 est premier\n");
+    return 0;
+}
+if (N < 2 || N % 2 == 0) {
+    printf("%ld isn't premier\n", N);
+    return 0;
+}
+
+p = 1;
+for (i = 3; i <= sqrt(N); i += 2) {
+    if (N % i == 0) {
+        p = 0;
+        break;
+    }
+}
+```
+
+2 - Worst-case complexity: `O(√N)`. The constant-time prechecks handle `N ≤ 3` and even `N`. For odd `N`, the loop tests only odd divisors `i = 3, 5, …, ⌊√N⌋`, giving about `(⌊√N⌋ − 1)/2` iterations. So T(N) = `(c/2)√N + k = Θ(√N)`. 
+
+Worst case occurs when `N` is an odd prime (or has no odd divisor ≤ `√N`). This halves the constant vs `A3`.
+
+3 - We have written this program in `A4.c`. Let's test it together. We will use the same array of numbers used for testing `A1`.
+
+Let's compile our program using this shell command:
+
+```sh
+gcc -o A4 A4.c -lm
+```
+
+Then we can do the test using this shell script that can be found in `tests/a.A4.test.sh`. Make sure to make it executable using this command:
+
+```sh
+chmod +x tests/a.A4.test.sh
+```
+
+Then run it using:
+
+```sh
+tests/a.A4.test.sh
+```
+
+We got this output:
+
+![USTHB logo](static/a.A4.test.png)
+
+In two graphs, we represented the variations of execution time `T(N)` and complexity in worst case `O(N)`. Since we're on Kali we used a python script to generate the graph (See `graphs/A4.graph.py`).
+
+```sh
+python3 graphs/A4.graph.py
+```
+
+Here is the generated graph found at `static/A4.graph.png`
+
+![USTHB logo](static/A4.graph.png)
+
+After comparing algorithm `A1`, algorithm `A2`, algorith `A3` and algorithm `A4`. 
+
+- `A1`: `O(N)`, slowest.
+- `A2`: `O(N)`, ~2× faster than `A1` (better constant).
+- `A3`: `O(√N)`, faster then `A1` and `A2`.
+- `A4`: `O(√N)`, ~2× faster than `A3` (better constant).
 
 
